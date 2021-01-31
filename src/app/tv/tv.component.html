@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="mat-h1">Dashboard</h1>
+
+  <mat-grid-list [cols]="cols" rowHeight="400px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1" *ngFor="let item of item$ | async">
+      <mat-card class="example-card">
+        <mat-card-content style="padding: 5px; margin-bottom: 0px; flex: none;">
+          <div fxFlex="90">
+            <mat-card-subtitle>title</mat-card-subtitle>
+            <mat-card-title style="font-size: 15px; height: 50px">{{ item.channel }}</mat-card-title>
+          </div>
+          <div fxFlex="10">
+            <mat-card-subtitle>views</mat-card-subtitle>
+            <mat-card-title style="font-size: 15px;">10</mat-card-title>
+          </div>
+        </mat-card-content>
+        <vg-player *ngIf="item.source == 'website'">
+          <video #media
+                 [vgMedia]="media"
+                 [vgHls]=item.videoUrl
+                 crossorigin
+                 controls
+          >
+          </video>
+        </vg-player>
+        <mat-card-actions fxLayoutAlign="flex-end">
+          <button mat-icon-button color="primary">watch</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

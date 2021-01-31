@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tvapp-648f6"
+  },
+  "targets": {
+    "tvapp-648f6": {
+      "hosting": {
+        "angularTv": [
+          "tvapp-648f6"
+        ]
+      }
+    }
+  }
+}
